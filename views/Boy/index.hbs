@@ -1,0 +1,71 @@
+<section id="header">
+   <a href="/"> <img src="images/Logo.png" class="logo" alt="" width="30%" height="auto"></a>
+   <div>
+      <ul id="navbar">
+         <li><a href="/">Home</a></li>
+         <li><a class="active" href="/Boy/index">Boy</a></li>
+         <li><a href="/Girl/index">Girl</a></li>
+      </ul>
+   </div>
+</section>
+
+<div class="container text-center mt-3 mb-3 col-md-8 ">
+   <table class="table table-success">
+      <tr>
+         <th class="h4 text text-danger" colspan="6">
+            <h4>TOYS FOR BOY</h4>
+         </th>
+      </tr>
+      <tr>
+         <th colspan="4">
+            <form action="boy/search" method="post">
+               <input class="form-control" type="search" name="keyword" placeholder="Search Products">
+            </form>
+         </th>
+         <th>
+            <a class="btn btn-success" href="/Boy/add">Add</a>
+            <a class="btn btn-danger" href="/Boy/drop"
+               onclick="return confirm('Are you sure to delete all mobiles ?');">Drop</a>
+         </th>
+         <th colspan="2">
+            <a class="btn btn-primary" href="/Boy/ascending">Sort by price ascending</a>
+            <a class="btn btn-success" href="/Boy/descending">Sort by price descending</a>
+            {{!-- <div class="form-group mt-3">
+               <label for="">FILTER</label>
+               <select class="form-control" name="brand">
+                  <option>Filter</option>
+                  <option href="/Boy/ascending">Sort by price ascending</option>
+                  <option value="Asus">Sort by price descending</option>
+               </select>
+            </div> --}}
+         </th>
+      </tr>
+      <div class="card-group text-center">
+
+      </div>
+   </table>
+</div>
+
+
+<section id="product1" class="section-p1">
+   <div class="row">
+      {{#each toys }}
+      <div class="pro-container">
+         <div class="pro">
+            <img class="" src="{{ image }}" width="140" height="320">
+            <div class="des">
+               <span>
+                  <p class="fw-bold card-text text-primary">{{ brand }}</p>
+               </span>
+               <h4 >{{ name }}</h4>
+               <h2 class="card-title text-success">{{color}}</h2>
+               <h4 class="card-title text-danger">${{ price }}</h4>
+            </div>
+            <a class="btn btn-warning" href="/Boy/edit/{{_id}}">Edit</a>
+            <a class="btn btn-danger" href="/Boy/delete/{{_id}}"
+               onclick="return confirm('Are you sure to delete this toy ?');">Delete</a>
+         </div>
+      </div>
+      {{/each}}
+   </div>
+</section>
